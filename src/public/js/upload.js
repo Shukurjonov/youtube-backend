@@ -8,8 +8,6 @@ const videoList = document.querySelector('.users-video__list')
 let user = window.localStorage.getItem('user')
 user = user ? JSON.parse(user) : {}
 
-console.log(user.user_id)
-
 uploadInput.addEventListener('change', () => {
     let file = uploadInput.files[0].name
     file = file.length > 25 ? file.slice(0, 10) + '...' + file.slice(file.length - 5, file.length) : file
@@ -74,15 +72,16 @@ function videosRenderer(array) {
     let deleteImgs = document.querySelectorAll('.delete-img')
     deleteImgs.forEach(deleteImg => {
         deleteImg.addEventListener('click', async () => {
-            let response = await request(`/videos/${deleteImg.dataset.id}`, 'DELETE')
+            let response = await request(`/video/${deleteImg.dataset.id}`, 'DELETE')
             let currentVideos = response.body.filter(video => video.user_id == user.user_id)
             videosRenderer(currentVideos)
         })
     })
     let videoTitles = document.querySelectorAll('.video__title')
     videoTitles.forEach(videoTitle => {
-        videoTitle.addEventListener('keyup', async (e) => {
-            if (e.keyCode == 13) {
+        videoTitle.addEventListener('keyup', async (event) => {
+            console.log(event.keyCode)
+            if (event.keyCode == 13) {
                 let response = await request(`/video/${videoTitle.dataset.id}`, 'PUT', {
                     title: videoTitle.textContent
                 })

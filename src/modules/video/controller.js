@@ -9,7 +9,6 @@ const SEARCH = (req, res) => {
     let word = req.query.searchedItem
     let videos = getVideo()
     let filtered = videos.filter(video => video.title.toLowerCase().includes(word))
-    console.log(filtered);
     res.status(200).send({
         body: filtered
     })
@@ -23,7 +22,7 @@ const DELETE = (req, res) => {
     })
 }
 
-const UPDATE = (req, res) => {
+const PUT = (req, res) => {
     let videos = updateVideo(req.body, req.params.videoId)
     res.status(200).send({
         message: 'Video title changed',
@@ -31,4 +30,4 @@ const UPDATE = (req, res) => {
     })
 }
 
-module.exports = {GET, SEARCH, DELETE, UPDATE}
+module.exports = {GET, SEARCH, DELETE, PUT}

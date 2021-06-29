@@ -23,6 +23,7 @@ const deleteVideo = (id) => {
     fs.writeFileSync(path.join(process.cwd(), 'src', 'database', 'videos.json'), JSON.stringify(videos, null, 4))
     return videos
 }
+
 const updateVideo = ({title}, id) => {
     let videos = fs.readFileSync(path.join(process.cwd(), 'src', 'database', 'videos.json'), 'utf-8')
     videos = videos ? JSON.parse(videos) : []

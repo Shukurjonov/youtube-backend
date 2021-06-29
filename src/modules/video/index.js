@@ -1,5 +1,5 @@
 const express = require('express')
-const {GET, SEARCH, DELETE, UPDATE} = require('./controller')
+const {GET, SEARCH, DELETE, PUT} = require('./controller')
 
 const videoRoute = express.Router()
 
@@ -9,11 +9,9 @@ videoRoute.route('/video')
 videoRoute.route('/video/search')
     .get(SEARCH)
 
-videoRoute.route('/videos/:videoId')
+videoRoute.route('/video/:videoId')
     .delete(DELETE)
-
-videoRoute.route('/videos/:videoId')
-    .put(UPDATE)
+    .put(PUT)
 
 
 module.exports = videoRoute
