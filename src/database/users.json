@@ -1,0 +1,16 @@
+[
+    {
+        "user_id": 1,
+        "username": "Shukurjonov",
+        "password": "1048576",
+        "email": "asliddinshukurjonov@gmail.com",
+        "avatar_link": "1624988628321profile-image1.jpeg"
+    },
+    {
+        "user_id": 2,
+        "username": "Akhrorbek",
+        "password": "1234567",
+        "email": "akhrorbek007@gmail.com",
+        "avatar_link": "1624989677358progile-image2.jpg"
+    }
+]
